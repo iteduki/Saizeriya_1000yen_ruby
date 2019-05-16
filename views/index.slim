@@ -1,0 +1,33 @@
+doctype html
+html
+  table border="1"
+    tr
+      th
+        メニュー
+      th
+        価格
+      th
+        カロリー
+      th
+        塩分
+    - @menus.each do |menu|
+      tr
+        td
+          = menu.name
+        td
+          = menu.price
+        td
+          = menu.calorie
+        td
+          = menu.salt
+    tr
+      td
+        b 合計
+      td
+        = @menus.sum(&:price)
+      td
+        = @menus.sum(&:calorie)
+      td
+        = @menus.sum(&:salt).round(2)
+  form method="get" action="/"
+    input type="submit" value="回す"

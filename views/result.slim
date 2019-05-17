@@ -1,0 +1,8 @@
+.result
+  - @menus.each do |menu|
+    .box.menu
+      h2 = menu.name
+      p = "#{menu.price}円 #{menu.calorie}kcal 塩分 #{menu.salt}g"
+  .box.rst
+    h2 = "計　#{@menus.sum(&:price)}円　#{@menus.sum(&:calorie)}kcal　#{@menus.sum(&:salt).round(2)}g" 
+  

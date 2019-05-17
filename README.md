@@ -1,5 +1,5 @@
 # Saizeriya_1000yen_ruby
-[Saizeriya_1000yen](https://qiita.com/marushosummers/items/a2d3681fac863734ec8a)をRubyで書いてみた（誰かデザイン助けて）
+[Saizeriya_1000yen](https://qiita.com/marushosummers/items/a2d3681fac863734ec8a)をRubyで書いてみた
 
 # Usage
 

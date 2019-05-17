@@ -3,12 +3,18 @@
 require 'active_record'
 require 'sinatra'
 require 'slim'
+require 'slim/include'
 
 ActiveRecord::Base.establish_connection(adapter: 'sqlite3', database: 'saizeriya.db')
-
 class Menu < ActiveRecord::Base; end
 
+set :public_folder, File.dirname(__FILE__) + '/static'
+
 get '/' do
+  slim :index
+end
+
+get '/get' do
   @menus = get_menus
   slim :index
 end

@@ -1,33 +1,18 @@
 doctype html
 html
-  table border="1"
-    tr
-      th
-        メニュー
-      th
-        価格
-      th
-        カロリー
-      th
-        塩分
-    - @menus.each do |menu|
-      tr
-        td
-          = menu.name
-        td
-          = menu.price
-        td
-          = menu.calorie
-        td
-          = menu.salt
-    tr
-      td
-        b 合計
-      td
-        = @menus.sum(&:price)
-      td
-        = @menus.sum(&:calorie)
-      td
-        = @menus.sum(&:salt).round(2)
-  form method="get" action="/"
-    input type="submit" value="回す"
+  head
+    title
+      サイゼリヤ1000円ガチャ
+    meta charset="utf-8"
+    meta name="viewport" content="width=750"
+    link rel="stylesheet" type="text/css" href="css/stlyle.css"
+
+  body
+    .page
+      .heading
+        h1 サイゼリヤ
+        h1 1000円ガチャ
+      .buttonarea
+        a href="/get" class="btn" ガチャを回す
+      - if @menus.present?
+        include result

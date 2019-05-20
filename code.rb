@@ -19,7 +19,7 @@ get '/get' do
   slim :index
 end
 
-def get_menus(budget: 1000)
+def get_menus(budget = 1000)
   candidate = Menu.where('price <= ?', budget)
   menus = []
 

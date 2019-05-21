@@ -16,6 +16,7 @@ end
 
 get '/get' do
   @menus = get_menus
+  @tweet_text = "サイゼリヤ1000円ガチャを回したよ！\n\n#{@menus.map(&:name).join("\n")}\n\n#{total_row(@menus)}\n\n"
   slim :index
 end
 
@@ -28,4 +29,8 @@ def get_menus(budget = 1000)
     candidate = candidate.select { |menu| menu.price <= budget - menus.sum(&:price) }
   end
   menus
+end
+
+def total_row(menus)
+  "計　#{@menus.sum(&:price)}円　#{@menus.sum(&:calorie)}kcal　#{@menus.sum(&:salt).round(2)}g"
 end
